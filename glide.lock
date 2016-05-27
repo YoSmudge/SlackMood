@@ -1,0 +1,16 @@
+hash: d8e604444e59a931452a3f525fc6cd3b57a0ea0dd10bc7ed717bde69297681c2
+updated: 2016-05-27T09:48:45.112228721+01:00
+imports:
+- name: github.com/nlopes/slack
+  version: e337a7316d3fe9aa55b7063035d6d32f3dbcaeb9
+- name: github.com/Sirupsen/logrus
+  version: 6d9ae300aaf85d6acd2e5424081c7fcddb21dab8
+- name: github.com/voxelbrain/goptions
+  version: 26cb8b04692384f4dc269de3b5fcf3e2ef78573e
+- name: golang.org/x/net
+  version: 30db96677b74e24b967e23f911eb3364fc61a011
+  subpackages:
+  - websocket
+- name: gopkg.in/yaml.v2
+  version: a83829b6f1293c91addabc89d0571c246397bbf4
+devImports: []

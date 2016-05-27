@@ -1,0 +1,6 @@
+package: github.com/samarudge/slackmood
+import:
+- package: github.com/Sirupsen/logrus
+- package: github.com/voxelbrain/goptions
+- package: gopkg.in/yaml.v2
+- package: github.com/nlopes/slack
