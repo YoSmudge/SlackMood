@@ -4,6 +4,8 @@
   <title>EmojiStats</title>
 
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-rc1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
 
   <div class="container-fluid">
     <div class="col-md-12">
@@ -37,3 +39,49 @@
       margin:10px 0;
     }
   </style>
+
+  <script type="text/javascript">
+    $(function(){
+      var data = {}
+      var labels = []
+      var moods = ['Positive', 'Neutral', 'Negative']
+      var colors = {
+        "Positive": "#00FF00",
+        "Negative": "#FF0000",
+        "Neutral": "#0000FF"
+      }
+
+      $.each(moods, function(i,mood){
+        data[mood] = {
+          label: mood,
+          backgroundColor: colors[mood],
+          data :[],
+          fill: false,
+        }
+      })
+
+      $.each(graphJson, function(i, elm){
+        labels.push(elm.Time)
+        $.each(moods, function(i,mood){
+          data[mood].data.push(elm[mood])
+        })
+      })
+
+      var dataset = []
+
+      $.each(data, function(k,v){
+        dataset.push(v)
+      })
+
+      var chart = new Chart($('#mood-graph'), {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: dataset
+        },
+        options: {
+          maintainAspectRatio: false
+        }
+      })
+    })
+  </script>

@@ -16,6 +16,7 @@
         </div>
         <div class="panel-body text-center">
           <h1>{{Positive}}%</h1>
+          <p>{{PositiveCount}}
         </div>
       </div>
     </div>
@@ -27,6 +28,7 @@
         </div>
         <div class="panel-body text-center">
           <h1>{{Neutral}}%</h1>
+          <p>{{NeutralCount}}
         </div>
       </div>
     </div>
@@ -38,8 +40,17 @@
         </div>
         <div class="panel-body text-center">
           <h1>{{Negative}}%</h1>
+          <p>{{NegativeCount}}
         </div>
       </div>
     </div>
   {{/currentMood}}
+</div>
+
+<script type="text/javascript">
+var graphJson = {{{moodGraphJson}}}
+</script>
+
+<div class="row">
+  <canvas width="100" height="300" id="mood-graph"></canvas>
 </div>

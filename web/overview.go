@@ -2,6 +2,7 @@ package web
 
 import(
   "time"
+  "encoding/json"
   "github.com/gin-gonic/gin"
   "github.com/samarudge/slackmood/models"
 )
@@ -9,13 +10,15 @@ import(
 type timePeriod struct{
   Name        string
   Period      time.Duration
+  Breakdown   time.Duration
   Active      bool
 }
 
 var timePeriods = []timePeriod{
-  timePeriod{"24h",time.Hour*24,false},
-  timePeriod{"7d",time.Hour*24*7,false},
-  timePeriod{"31d",time.Hour*24*31,false},
+  timePeriod{"24h",time.Hour*24,time.Minute*15,false},
+  timePeriod{"7d",time.Hour*24*7,time.Hour*1,false},
+  timePeriod{"31d",time.Hour*24*31,time.Hour*12,false},
+  timePeriod{"90d",time.Hour*24*90,time.Hour*24,false},
 }
 
 func Overview(c *gin.Context){
@@ -38,10 +41,13 @@ func Overview(c *gin.Context){
     return
   }
 
-  mood := models.GetMood(period.Period)
+  mood := models.GetMood(time.Now().UTC().Add(period.Period*-1), time.Now().UTC())
+  graphData := models.GraphMood(period.Period, period.Breakdown)
+  graphJson, _ := json.Marshal(graphData)
 
   Render(c, "overview.html", gin.H{
     "currentMood": mood,
     "timePeriods": timePeriods,
+    "moodGraphJson": string(graphJson),
   })
 }
