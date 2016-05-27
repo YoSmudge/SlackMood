@@ -4,3 +4,5 @@ import:
 - package: github.com/voxelbrain/goptions
 - package: gopkg.in/yaml.v2
 - package: github.com/nlopes/slack
+- package: github.com/boltdb/bolt
+- package: github.com/hoisie/mustache

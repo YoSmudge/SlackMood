@@ -1,0 +1,45 @@
+
+<div class="row">
+  <ul class="nav nav-pills" style="padding-bottom:10px;">
+    {{#timePeriods}}
+      <li class="{{#Active}}active{{/Active}}"><a href="/?period={{Name}}">{{Name}}</a></li>
+    {{/timePeriods}}
+  </ul>
+</div>
+
+<div class="row">
+  {{#currentMood}}
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          Positive
+        </div>
+        <div class="panel-body text-center">
+          <h1>{{Positive}}%</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          Neutral
+        </div>
+        <div class="panel-body text-center">
+          <h1>{{Neutral}}%</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          Negative
+        </div>
+        <div class="panel-body text-center">
+          <h1>{{Negative}}%</h1>
+        </div>
+      </div>
+    </div>
+  {{/currentMood}}
+</div>

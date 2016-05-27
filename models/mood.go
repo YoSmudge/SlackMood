@@ -1,6 +1,7 @@
 package models
 
 import(
+  "fmt"
   "time"
   "github.com/samarudge/slackmood/emojiRanks"
 )
@@ -16,7 +17,11 @@ type Mood struct{
 }
 
 func percentage(a int32, b int32) float32{
-  return float32(a)/float32(b)*100
+  if b == 0{
+    return 0
+  } else {
+    return float32(a)/float32(b)*100
+  }
 }
 
 func GetMood(over time.Duration) Mood{

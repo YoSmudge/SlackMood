@@ -1,6 +1,21 @@
-hash: d8e604444e59a931452a3f525fc6cd3b57a0ea0dd10bc7ed717bde69297681c2
-updated: 2016-05-27T09:48:45.112228721+01:00
+hash: 002407b47f480ae375177dfb49bd780870a8dc2bbabb42195b715436ec114d92
+updated: 2016-05-27T14:14:31.831441412+01:00
 imports:
+- name: github.com/boltdb/bolt
+  version: dfb21201d9270c1082d5fb0f07f500311ff72f18
+- name: github.com/gin-gonic/gin
+  version: f931d1ea80ae95a6fc739213cdd9399bd2967fb6
+  subpackages:
+  - binding
+  - render
+- name: github.com/golang/protobuf
+  version: 2402d76f3d41f928c7902a765dfc872356dd3aad
+  subpackages:
+  - proto
+- name: github.com/hoisie/mustache
+  version: af524a16a1b1bd467c342969bf37db23433466c4
+- name: github.com/manucorporat/sse
+  version: ee05b128a739a0fb76c7ebd3ae4810c1de808d6d
 - name: github.com/nlopes/slack
   version: e337a7316d3fe9aa55b7063035d6d32f3dbcaeb9
 - name: github.com/Sirupsen/logrus
@@ -8,9 +23,12 @@ imports:
 - name: github.com/voxelbrain/goptions
   version: 26cb8b04692384f4dc269de3b5fcf3e2ef78573e
 - name: golang.org/x/net
-  version: 30db96677b74e24b967e23f911eb3364fc61a011
+  version: f315505cf3349909cdf013ea56690da34e96a451
   subpackages:
   - websocket
+  - context
+- name: gopkg.in/go-playground/validator.v8
+  version: c193cecd124b5cc722d7ee5538e945bdb3348435
 - name: gopkg.in/yaml.v2
   version: a83829b6f1293c91addabc89d0571c246397bbf4
 devImports: []
