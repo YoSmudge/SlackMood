@@ -54,6 +54,21 @@ func (e *EmojiList) AddEmoji(emoji string, m api.Message, id string){
   }
 }
 
+func FilterEmoji(from time.Time, to time.Time, emoji []*Emoji) []*Emoji{
+  var emj []*Emoji
+  for _, e := range emoji{
+    if e.SeenAt.After(from) && e.SeenAt.Before(to){
+      emj = append(emj, e)
+    }
+  }
+
+  return emj
+}
+
+func AllEmoji() []*Emoji{
+  return emojiList.List()
+}
+
 func (e *EmojiList) List() []*Emoji{
   var em []*Emoji
   err := db.View(func(tx *bolt.Tx) error{

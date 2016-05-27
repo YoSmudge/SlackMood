@@ -14,6 +14,7 @@ type Mood struct{
   NeutralCount  int32
   TotalCount    int32
   Time          time.Time
+  TimeString    string
 }
 
 func percentage(a int32, b int32) float32{
@@ -24,24 +25,22 @@ func percentage(a int32, b int32) float32{
   }
 }
 
-func GetMood(from time.Time, to time.Time) Mood{
+func GetMood(emoji []*Emoji) Mood{
   m := Mood{}
 
-  for _, e := range emojiList.List(){
-    if e.SeenAt.After(from) && e.SeenAt.Before(to){
-      for _,r := range ranks.EmojiRanks{
-        if r.Name == e.Name{
-          switch r.Rank {
-          case 1:
-            m.PositiveCount += 1
-          case 0:
-            m.NeutralCount += 1
-          case -1:
-            m.NegativeCount += 1
-          }
-          m.TotalCount += 1
-          break
+  for _, e := range emoji{
+    for _,r := range ranks.EmojiRanks{
+      if r.Name == e.Name{
+        switch r.Rank {
+        case 1:
+          m.PositiveCount += 1
+        case 0:
+          m.NeutralCount += 1
+        case -1:
+          m.NegativeCount += 1
         }
+        m.TotalCount += 1
+        break
       }
     }
   }
@@ -59,12 +58,14 @@ func GraphMood(over time.Duration, interval time.Duration) []Mood{
   now := time.Now().UTC()
   dataPointCount := int(over.Seconds()/interval.Seconds())
   endTime := time.Unix(int64(interval.Seconds())*int64(now.Unix()/int64(interval.Seconds())), 0)
+  periodEmoji := FilterEmoji(endTime.Add(over*-1), endTime, AllEmoji())
   for i:=0;i<dataPointCount;i++{
     offset := int(interval.Seconds())*(dataPointCount-i)
     startTime := endTime.Add(time.Second*time.Duration(offset)*-1)
 
-    m := GetMood(startTime, startTime.Add(interval))
+    m := GetMood(FilterEmoji(startTime, startTime.Add(interval), periodEmoji))
     m.Time = startTime
+    m.TimeString = startTime.Format("Jan _2")
     points = append(points, m)
   }
 

@@ -46,9 +46,9 @@
       var labels = []
       var moods = ['Positive', 'Neutral', 'Negative']
       var colors = {
-        "Positive": "#00FF00",
-        "Negative": "#FF0000",
-        "Neutral": "#0000FF"
+        "Positive": "#009816",
+        "Negative": "#f80046",
+        "Neutral": "#3a3a3a"
       }
 
       $.each(moods, function(i,mood){
@@ -61,7 +61,7 @@
       })
 
       $.each(graphJson, function(i, elm){
-        labels.push(elm.Time)
+        labels.push(elm.TimeString)
         $.each(moods, function(i,mood){
           data[mood].data.push(elm[mood])
         })

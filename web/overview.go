@@ -41,7 +41,7 @@ func Overview(c *gin.Context){
     return
   }
 
-  mood := models.GetMood(time.Now().UTC().Add(period.Period*-1), time.Now().UTC())
+  mood := models.GetMood(models.FilterEmoji(time.Now().UTC().Add(period.Period*-1), time.Now().UTC(), models.AllEmoji()))
   graphData := models.GraphMood(period.Period, period.Breakdown)
   graphJson, _ := json.Marshal(graphData)
 
@@ -49,5 +49,6 @@ func Overview(c *gin.Context){
     "currentMood": mood,
     "timePeriods": timePeriods,
     "moodGraphJson": string(graphJson),
+    "totalEmoji": len(models.AllEmoji()),
   })
 }
