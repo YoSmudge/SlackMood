@@ -5,7 +5,7 @@ import(
   "sync"
   api "github.com/nlopes/slack"
   log "github.com/Sirupsen/logrus"
-  "github.com/samarudge/slackmood/slack"
+  "github.com/yosmudge/slackmood/slack"
 )
 
 var channelList []api.Channel

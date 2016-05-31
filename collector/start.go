@@ -3,7 +3,7 @@ package collector
 import(
   "sync"
   log "github.com/Sirupsen/logrus"
-  "github.com/samarudge/slackmood/slack"
+  "github.com/yosmudge/slackmood/slack"
 )
 
 // Start the emoji collector

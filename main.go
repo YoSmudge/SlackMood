@@ -6,10 +6,10 @@ import(
   log "github.com/Sirupsen/logrus"
   "github.com/voxelbrain/goptions"
 
-  "github.com/samarudge/slackmood/web"
-  "github.com/samarudge/slackmood/models"
-  "github.com/samarudge/slackmood/config"
-  "github.com/samarudge/slackmood/collector"
+  "github.com/yosmudge/slackmood/web"
+  "github.com/yosmudge/slackmood/models"
+  "github.com/yosmudge/slackmood/config"
+  "github.com/yosmudge/slackmood/collector"
 )
 
 type options struct {

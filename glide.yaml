@@ -1,4 +1,4 @@
-package: github.com/samarudge/slackmood
+package: github.com/yosmudge/slackmood
 import:
 - package: github.com/Sirupsen/logrus
 - package: github.com/voxelbrain/goptions

@@ -4,7 +4,7 @@ import(
   "fmt"
   api "github.com/nlopes/slack"
   log "github.com/Sirupsen/logrus"
-  "github.com/samarudge/slackmood/config"
+  "github.com/yosmudge/slackmood/config"
 )
 
 func Connect() (*Slack, error){

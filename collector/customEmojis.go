@@ -4,7 +4,7 @@ import(
   "sync"
   "time"
   log "github.com/Sirupsen/logrus"
-  "github.com/samarudge/slackmood/slack"
+  "github.com/yosmudge/slackmood/slack"
 )
 
 // Loads the custom emoji for the team

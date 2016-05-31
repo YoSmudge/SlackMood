@@ -2,7 +2,7 @@ package models
 
 import(
   "github.com/boltdb/bolt"
-  "github.com/samarudge/slackmood/config"
+  "github.com/yosmudge/slackmood/config"
 )
 
 var db *bolt.DB

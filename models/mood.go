@@ -2,7 +2,7 @@ package models
 
 import(
   "time"
-  "github.com/samarudge/slackmood/emojiRanks"
+  "github.com/yosmudge/slackmood/emojiRanks"
 )
 
 type Mood struct{

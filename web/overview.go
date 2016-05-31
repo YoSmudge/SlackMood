@@ -4,7 +4,7 @@ import(
   "time"
   "encoding/json"
   "github.com/gin-gonic/gin"
-  "github.com/samarudge/slackmood/models"
+  "github.com/yosmudge/slackmood/models"
 )
 
 type timePeriod struct{
