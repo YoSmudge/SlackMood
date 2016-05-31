@@ -31,5 +31,5 @@ func collector(s *slack.Slack, wg *sync.WaitGroup){
   go channels(s, wg)
 
   wg.Add(1)
-  //go updateChannels(s, wg)
+  go updateChannels(s, wg)
 }
