@@ -17,8 +17,8 @@ type timePeriod struct{
 var timePeriods = []timePeriod{
   timePeriod{"24h",time.Hour*24,time.Minute*15,false},
   timePeriod{"7d",time.Hour*24*7,time.Hour*1,false},
-  timePeriod{"31d",time.Hour*24*31,time.Hour*12,false},
-  timePeriod{"90d",time.Hour*24*90,time.Hour*24,false},
+  timePeriod{"31d",time.Hour*24*31,time.Hour*24,false},
+  timePeriod{"90d",time.Hour*24*90,time.Hour*24*7,false},
 }
 
 func Overview(c *gin.Context){
