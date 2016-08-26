@@ -10,17 +10,8 @@
   <div class="container-fluid">
     <div class="col-md-12">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-12">
           <p class="lead">Emoji Stats
-        </div>
-
-        <div class="col-md-8 headernav">
-          <ul class="nav nav-pills nav-justified">
-              <li class="">
-                <a href="/">
-                  Overview
-                </a>
-          </ul>
         </div>
       </div>
 
@@ -44,7 +35,7 @@
       var labels = []
       var moods = ['Positive', 'Neutral', 'Negative']
       var colors = {
-        "Positive": "#009816",
+        "Positive": "#0000ff",
         "Negative": "#f80046",
         "Neutral": "#3a3a3a"
       }
@@ -59,7 +50,7 @@
       })
 
       $.each(graphJson, function(i, elm){
-        labels.push(elm.TimeString)
+        labels.push(elm.Time)
         $.each(moods, function(i,mood){
           data[mood].data.push(elm[mood])
         })
@@ -78,7 +69,12 @@
           datasets: dataset
         },
         options: {
-          maintainAspectRatio: false
+          maintainAspectRatio: false,
+          scales: {
+              xAxes: [{
+                  type: "time"
+              }]
+          }
         }
       })
     })
